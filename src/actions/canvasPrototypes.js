@@ -1,13 +1,16 @@
 import React from "react";
 
 export const ReactangleObject = payload => {
+  const width = payload.ex - payload.x;
+  const height = payload.ey - payload.y;
+
   let value = (
     <rect
       key={payload.x - payload.y}
       x={payload.x}
       y={payload.y}
-      width={payload.ex - payload.x}
-      height={payload.ey - payload.y}
+      width={width}
+      height={height}
       stroke="black"
       fill="transparent"
       strokeWidth="5"
@@ -23,7 +26,7 @@ export const circleObject = payload => {
       key={payload.x - payload.y + Math.random(100)}
       cx={payload.x}
       cy={payload.y}
-      r={payload.radius ? payload.radius : payload.ex - payload.x}
+      r={payload.radius}
       fill="none"
       strokeWidth="1"
       stroke="black"
