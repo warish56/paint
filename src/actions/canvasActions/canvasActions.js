@@ -5,3 +5,9 @@ export const updateObject = object => {
     dispatch({ type: canvasActionTypes.UPDATE_OBJECT, object: object });
   };
 };
+
+export const updateColor = color => {
+  return dispatch => {
+    dispatch({ type: canvasActionTypes.UPDATE_COLOR, color: color });
+  };
+};

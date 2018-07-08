@@ -11,8 +11,8 @@ export const ReactangleObject = payload => {
       y={payload.y}
       width={width}
       height={height}
-      stroke="black"
-      fill="transparent"
+      stroke={payload.stroke ? payload.stroke : "black"}
+      fill={payload.fill ? payload.fill : "transparent"}
       strokeWidth="5"
     />
   );
@@ -27,16 +27,40 @@ export const circleObject = payload => {
       cx={payload.x}
       cy={payload.y}
       r={payload.radius}
-      fill="none"
-      strokeWidth="1"
-      stroke="black"
+      fill={payload.fill ? payload.fill : "transparent"}
+      strokeWidth="5"
+      stroke={payload.stroke ? payload.stroke : "black"}
     />
   );
   return Object.assign({}, { ...payload, value: value, type: "circle" });
 };
 
-export const PathObject = payload => {
-  let value = <path key={payload.x - payload.y + 2} d={"M" + payload.path} />;
+export const LineObject = payload => {
+  let value = (
+    <line
+      key={payload.x * Math.random(100)}
+      x1={payload.x}
+      x2={payload.ex}
+      y1={payload.y}
+      y2={payload.ey}
+      stroke={payload.stroke ? payload.stroke : "black"}
+      strokeWidth="5"
+    />
+  );
 
   return Object.assign({}, { ...payload, value: value });
+};
+
+export const TriangleObject = payload => {
+  let value = (
+    <polygon
+      key={payload.x + Math.sqrt(Math.random(100))}
+      points={payload.points.join(" ")}
+      stroke={payload.stroke ? payload.stroke : "black"}
+      fill={payload.fill ? payload.fill : "transparent"}
+      strokeWidth="5"
+    />
+  );
+
+  return Object.assign({}, { ...payload, value: value, type: "triangle" });
 };

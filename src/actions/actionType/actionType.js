@@ -1,1 +1,2 @@
 export const UPDATE_OBJECT = "UPDATE_OBJECT";
+export const UPDATE_COLOR = "UPDATE_COLOR";
